@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Counselling Platform - Personalized Roadmap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #77bfa3;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid #4e9f75;
+        }
+
+        nav {
+            background-color: #4e9f75;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #3e8e61;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h2 {
+            color: #4e9f75;
+        }
+
+        .roadmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .roadmap-step {
+            border-left: 5px solid #77bfa3;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: #77bfa3;
+            border-radius: 50%;
+        }
+
+        .roadmap-step h3 {
+            color: #4e9f75;
+            margin-top: 0;
+        }
+
+        .roadmap-step ul, .roadmap-step ol {
+            padding-left: 20px;
+        }
+
+        button {
+            background-color: #77bfa3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #4e9f75;
+        }
+
+        .additional-content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #4e9f75;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            section {
+                margin: 10px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NextStep</h1>
+        <p>Helping Students Make Informed Career Choices</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Career Assessment</a>
+        <a href="ai-guidance.html">AI Career Guidance</a>
+        <a href="Mentor.html">Mentorship Programs</a>
+        <a href="explore.html">Interactive Career Exploration</a>
+        <a href="resources.html">Career Resources</a>
+    </nav>
+
+    <section>
+        <h2>Your Personalized Roadmap</h2>
+        <p>Based on your recent quiz results, here are the top 3 career paths tailored to your interests and skills:</p>
+        <div id="roadmap-container" class="roadmap-container"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 NextStep. All rights reserved.</p>
+    </footer>
+
+    <script>
+const jobs = {
+  "Software Developer": {
+      description: "Designs, develops, and maintains software applications.",
+      skillsRequired: [
+          "Proficiency in programming languages (e.g., JavaScript, Python)",
+          "Strong problem-solving skills",
+          "Knowledge of software development methodologies"
+      ],
+      educationalRequirements: "Degree in Computer Science, Software Engineering, or related field.",
+      careerPath: [
+          "Junior Software Developer",
+          "Software Developer",
+          "Senior Software Developer",
+          "Lead Software Developer"
+      ],
+      roadmap: [
+          "Learn programming languages and software development principles.",
+          "Build a portfolio of projects and contribute to open-source.",
+          "Gain experience through internships or entry-level positions.",
+          "Pursue advanced certifications or a master's degree for career advancement."
+      ]
+  },
+  "Data Scientist": {
+      description: "Analyzes and interprets complex data to help companies make informed decisions.",
+      skillsRequired: [
+          "Proficiency in data analysis tools (e.g., Python, R)",
+          "Strong statistical and analytical skills",
+          "Experience with machine learning algorithms"
+      ],
+      educationalRequirements: "Degree in Data Science, Statistics, or related field.",
+      careerPath: [
+          "Junior Data Scientist",
+          "Data Scientist",
+          "Senior Data Scientist",
+          "Data Science Manager"
+      ],
+      roadmap: [
+          "Learn data analysis tools and statistical methods.",
+          "Work on real-world data projects and build a portfolio.",
+          "Gain experience through internships or entry-level positions.",
+          "Pursue advanced degrees or certifications in data science for higher roles."
+      ]
+  },
+  "Digital Marketer": {
+      description: "Develops and manages online marketing strategies to drive traffic and sales.",
+      skillsRequired: [
+          "Proficiency in digital marketing tools (e.g., Google Analytics, SEO)",
+          "Strong understanding of online marketing strategies",
+          "Excellent analytical and creative skills"
+      ],
+      educationalRequirements: "Degree in Marketing, Digital Media, or related field.",
+      careerPath: [
+          "Digital Marketing Coordinator",
+          "Digital Marketing Specialist",
+          "Senior Digital Marketing Specialist",
+          "Digital Marketing Manager"
+      ],
+      roadmap: [
+          "Learn digital marketing techniques and tools.",
+          "Create and manage marketing campaigns for experience.",
+          "Build a portfolio of successful campaigns.",
+          "Pursue certifications in digital marketing and seek leadership opportunities."
+      ]
+  },
+  "Graphic Designer": {
+      description: "Creates visual content for print and digital media.",
+      skillsRequired: [
+          "Proficiency in design software (e.g., Adobe Creative Suite)",
+          "Strong creativity and attention to detail",
+          "Knowledge of design principles and trends"
+      ],
+      educationalRequirements: "Degree in Graphic Design, Visual Arts, or related field.",
+      careerPath: [
+          "Junior Graphic Designer",
+          "Graphic Designer",
+          "Senior Graphic Designer",
+          "Art Director"
+      ],
+      roadmap: [
+          "Learn design software and principles.",
+          "Build a portfolio with diverse design projects.",
+          "Gain experience through internships or freelance work.",
+          "Advance to senior roles or specialize in a design niche."
+      ]
+  },
+  "Mechanical Engineer": {
+      description: "Designs, develops, and tests mechanical systems and devices.",
+      skillsRequired: [
+          "Strong understanding of mechanical engineering principles",
+          "Proficiency in CAD software",
+          "Excellent problem-solving and analytical skills"
+      ],
+      educationalRequirements: "Degree in Mechanical Engineering or related field.",
+      careerPath: [
+          "Junior Mechanical Engineer",
+          "Mechanical Engineer",
+          "Senior Mechanical Engineer",
+          "Engineering Manager"
+      ],
+      roadmap: [
+          "Study mechanical engineering principles and gain practical experience.",
+          "Work on engineering projects and build a strong portfolio.",
+          "Gain experience through internships or entry-level positions.",
+          "Pursue certifications or a master's degree for career growth."
+      ]
+  },
+  "Public Relations Specialist": {
+      description: "Manages the public image of an organization and handles media relations.",
+      skillsRequired: [
+          "Excellent communication and writing skills",
+          "Strong media relations and crisis management skills",
+          "Ability to create effective PR strategies"
+      ],
+      educationalRequirements: "Degree in Public Relations, Communications, or related field.",
+      careerPath: [
+          "PR Coordinator",
+          "Public Relations Specialist",
+          "Senior PR Specialist",
+          "PR Manager"
+      ],
+      roadmap: [
+          "Develop strong communication skills and understanding of media relations.",
+          "Gain experience through internships or entry-level PR roles.",
+          "Build a portfolio of successful PR campaigns.",
+          "Pursue advanced certifications or leadership roles in PR."
+      ]
+  },
+  "Web Developer": {
+      description: "Builds and maintains websites and web applications.",
+      skillsRequired: [
+          "Proficiency in web technologies (e.g., HTML, CSS, JavaScript)",
+          "Strong problem-solving skills",
+          "Understanding of user experience (UX) principles"
+      ],
+      educationalRequirements: "Degree in Web Development, Computer Science, or related field.",
+      careerPath: [
+          "Junior Web Developer",
+          "Web Developer",
+          "Senior Web Developer",
+          "Lead Web Developer"
+      ],
+      roadmap: [
+          "Learn web development technologies and best practices.",
+          "Build and maintain personal or freelance websites.",
+          "Gain experience through internships or entry-level positions.",
+          "Pursue advanced certifications or leadership roles in web development."
+      ]
+  },
+  "Financial Analyst": {
+      description: "Analyzes financial data and provides insights to support business decisions.",
+      skillsRequired: [
+          "Strong analytical and financial modeling skills",
+          "Proficiency in financial analysis tools",
+          "Excellent communication and presentation skills"
+      ],
+      educationalRequirements: "Degree in Finance, Accounting, or related field.",
+      careerPath: [
+          "Junior Financial Analyst",
+          "Financial Analyst",
+          "Senior Financial Analyst",
+          "Finance Manager"
+      ],
+      roadmap: [
+          "Study financial analysis techniques and tools.",
+          "Gain experience through internships or entry-level roles.",
+          "Build a portfolio of financial analysis projects.",
+          "Pursue certifications in finance or a master's degree for career advancement."
+      ]
+  },
+  "Biomedical Engineer": {
+      description: "Designs and develops medical devices and technologies.",
+      skillsRequired: [
+          "Proficiency in biomedical engineering principles",
+          "Strong problem-solving skills",
+          "Knowledge of medical regulations"
+      ],
+      educationalRequirements: "Degree in Biomedical Engineering or related field.",
+      careerPath: [
+          "Junior Biomedical Engineer",
+          "Biomedical Engineer",
+          "Senior Biomedical Engineer",
+          "Biomedical Engineering Manager"
+      ],
+      roadmap: [
+          "Study biomedical engineering principles and medical device technologies.",
+          "Work on biomedical projects and gain hands-on experience.",
+          "Build a portfolio of successful projects.",
+          "Pursue advanced certifications or a master's degree for career growth."
+      ]
+  },
+  "Mechanical Drafter": {
+      description: "Creates detailed technical drawings and plans for mechanical systems.",
+      skillsRequired: [
+          "Proficiency in CAD software",
+          "Strong understanding of mechanical systems",
+          "Attention to detail and accuracy"
+      ],
+      educationalRequirements: "Degree or diploma in Drafting, Mechanical Engineering, or related field.",
+      careerPath: [
+          "Junior Mechanical Drafter",
+          "Mechanical Drafter",
+          "Senior Mechanical Drafter",
+          "Lead Drafter"
+      ],
+      roadmap: [
+          "Learn drafting techniques and CAD software.",
+          "Build a portfolio of technical drawings and plans.",
+          "Gain experience through internships or entry-level positions.",
+          "Pursue advanced certifications or specialize in a drafting niche."
+      ]
+  },
+  "Environmental Scientist": {
+      description: "Studies environmental processes and develops solutions to environmental problems.",
+      skillsRequired: [
+          "Strong understanding of environmental science principles",
+          "Experience with fieldwork and data collection",
+          "Excellent analytical and problem-solving skills"
+      ],
+      educationalRequirements: "Degree in Environmental Science, Biology, or related field.",
+      careerPath: [
+          "Environmental Technician",
+          "Environmental Scientist",
+          "Senior Environmental Scientist",
+          "Environmental Consultant"
+      ],
+      roadmap: [
+          "Study environmental science and gain fieldwork experience.",
+          "Build a portfolio of environmental research and projects.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue certifications or a master's degree for career advancement."
+      ]
+  },
+  "Human Resources Specialist": {
+      description: "Manages hiring processes, employee relations, and HR policies.",
+      skillsRequired: [
+          "Strong interpersonal and communication skills",
+          "Knowledge of HR practices and employment law",
+          "Excellent organizational and problem-solving abilities"
+      ],
+      educationalRequirements: "Degree in Human Resources, Business Administration, or related field.",
+      careerPath: [
+          "HR Assistant",
+          "Human Resources Specialist",
+          "Senior HR Specialist",
+          "HR Manager"
+      ],
+      roadmap: [
+          "Study HR practices and employment law.",
+          "Gain experience through internships or entry-level HR roles.",
+          "Build a portfolio of successful HR projects.",
+          "Pursue certifications or a master's degree for career advancement."
+      ]
+  },
+  "Marketing Manager": {
+      description: "Develops and implements marketing strategies to drive business growth.",
+      skillsRequired: [
+          "Strong marketing and strategic planning skills",
+          "Experience with market research and analysis",
+          "Excellent leadership and project management skills"
+      ],
+      educationalRequirements: "Degree in Marketing, Business Administration, or related field.",
+      careerPath: [
+          "Marketing Coordinator",
+          "Marketing Manager",
+          "Senior Marketing Manager",
+          "Marketing Director"
+      ],
+      roadmap: [
+          "Learn marketing strategies and tools.",
+          "Build experience through managing marketing campaigns.",
+          "Gain leadership experience and manage teams.",
+          "Pursue advanced certifications or a master's degree for career growth."
+      ]
+  },
+  "Public Health Administrator": {
+      description: "Manages public health programs and initiatives to improve community health.",
+      skillsRequired: [
+          "Strong understanding of public health principles",
+          "Excellent management and organizational skills",
+          "Ability to analyze health data and trends"
+      ],
+      educationalRequirements: "Degree in Public Health, Health Administration, or related field.",
+      careerPath: [
+          "Public Health Analyst",
+          "Public Health Administrator",
+          "Senior Public Health Administrator",
+          "Public Health Director"
+      ],
+      roadmap: [
+          "Study public health principles and gain relevant experience.",
+          "Work on public health projects and build a portfolio.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue a master's degree in public health or a related field for career advancement."
+      ]
+  },
+  "Construction Manager": {
+      description: "Oversees construction projects from planning to completion.",
+      skillsRequired: [
+          "Strong project management and organizational skills",
+          "Knowledge of construction methods and regulations",
+          "Excellent problem-solving and leadership abilities"
+      ],
+      educationalRequirements: "Degree in Construction Management, Civil Engineering, or related field.",
+      careerPath: [
+          "Assistant Construction Manager",
+          "Construction Manager",
+          "Senior Construction Manager",
+          "Construction Director"
+      ],
+      roadmap: [
+          "Study construction management and gain hands-on experience.",
+          "Work on construction projects and build a strong portfolio.",
+          "Gain experience through internships or entry-level positions.",
+          "Pursue advanced certifications or a master's degree for career advancement."
+      ]
+  },
+  "Civil Engineer": {
+      description: "Designs, builds, and maintains infrastructure projects like roads, bridges, and buildings.",
+      skillsRequired: [
+          "Strong understanding of civil engineering principles",
+          "Proficiency in engineering design software",
+          "Excellent problem-solving and analytical skills"
+      ],
+      educationalRequirements: "Degree in Civil Engineering or related field.",
+      careerPath: [
+          "Junior Civil Engineer",
+          "Civil Engineer",
+          "Senior Civil Engineer",
+          "Civil Engineering Manager"
+      ],
+      roadmap: [
+          "Study civil engineering principles and gain practical experience.",
+          "Work on infrastructure projects and build a strong portfolio.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue advanced certifications or a master's degree for career advancement."
+      ]
+  },
+  "Nurse": {
+      description: "Provides medical care and support to patients in various healthcare settings.",
+      skillsRequired: [
+          "Strong medical knowledge and patient care skills",
+          "Excellent communication and interpersonal skills",
+          "Ability to work in high-pressure environments"
+      ],
+      educationalRequirements: "Degree in Nursing or related field.",
+      careerPath: [
+          "Registered Nurse",
+          "Senior Nurse",
+          "Nurse Practitioner",
+          "Nurse Manager"
+      ],
+      roadmap: [
+          "Complete nursing education and obtain necessary licensure.",
+          "Gain experience through clinical rotations and entry-level positions.",
+          "Pursue specialized certifications or advanced degrees for career advancement."
+      ]
+  },
+  "Event Planner": {
+      description: "Plans and coordinates events such as conferences, weddings, and corporate meetings.",
+      skillsRequired: [
+          "Strong organizational and planning skills",
+          "Excellent communication and negotiation abilities",
+          "Creativity and attention to detail"
+      ],
+      educationalRequirements: "Degree in Event Management, Hospitality, or related field.",
+      careerPath: [
+          "Event Coordinator",
+          "Event Planner",
+          "Senior Event Planner",
+          "Event Manager"
+      ],
+      roadmap: [
+          "Learn event planning techniques and gain hands-on experience.",
+          "Build a portfolio of successfully managed events.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue certifications or advanced degrees for career growth."
+      ]
+  },
+  "Pharmacist": {
+      description: "Dispenses medications, provides drug information, and advises patients on medication use.",
+      skillsRequired: [
+          "Strong knowledge of pharmaceuticals and drug interactions",
+          "Excellent communication and interpersonal skills",
+          "Attention to detail and accuracy"
+      ],
+      educationalRequirements: "Degree in Pharmacy or related field.",
+      careerPath: [
+          "Pharmacy Intern",
+          "Pharmacist",
+          "Senior Pharmacist",
+          "Pharmacy Manager"
+      ],
+      roadmap: [
+          "Complete pharmacy education and obtain licensure.",
+          "Gain experience through internships and entry-level positions.",
+          "Pursue advanced certifications or specialized fields in pharmacy."
+      ]
+  },
+  "Biomedical Scientist": {
+      description: "Conducts laboratory tests and research to support medical diagnosis and treatment.",
+      skillsRequired: [
+          "Strong analytical and laboratory skills",
+          "Knowledge of biomedical science techniques",
+          "Attention to detail and precision"
+      ],
+      educationalRequirements: "Degree in Biomedical Science or related field.",
+      careerPath: [
+          "Biomedical Science Technician",
+          "Biomedical Scientist",
+          "Senior Biomedical Scientist",
+          "Biomedical Science Manager"
+      ],
+      roadmap: [
+          "Study biomedical science and gain laboratory experience.",
+          "Work on research projects and build a portfolio.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue advanced degrees or certifications for career advancement."
+      ]
+  },
+  "Human Resources Manager": {
+      description: "Oversees HR functions and manages HR team and policies.",
+      skillsRequired: [
+          "Strong leadership and organizational skills",
+          "Knowledge of HR practices and employment law",
+          "Excellent interpersonal and problem-solving abilities"
+      ],
+      educationalRequirements: "Degree in Human Resources, Business Administration, or related field.",
+      careerPath: [
+          "HR Specialist",
+          "Human Resources Manager",
+          "Senior HR Manager",
+          "HR Director"
+      ],
+      roadmap: [
+          "Gain experience in various HR roles and build leadership skills.",
+          "Develop strong understanding of HR policies and employment law.",
+          "Pursue certifications or advanced degrees for career growth."
+      ]
+  },
+  "Construction Engineer": {
+      description: "Plans, designs, and supervises construction projects and ensures they are completed on time and within budget.",
+      skillsRequired: [
+          "Strong knowledge of construction techniques and materials",
+          "Excellent project management skills",
+          "Ability to solve complex engineering problems"
+      ],
+      educationalRequirements: "Degree in Construction Engineering or related field.",
+      careerPath: [
+          "Junior Construction Engineer",
+          "Construction Engineer",
+          "Senior Construction Engineer",
+          "Construction Engineering Manager"
+      ],
+      roadmap: [
+          "Study construction engineering principles and gain hands-on experience.",
+          "Work on various construction projects and build a portfolio.",
+          "Pursue certifications or a master's degree for advanced roles."
+      ]
+  },
+  "Social Worker": {
+      description: "Provides support and resources to individuals and communities to improve their well-being.",
+      skillsRequired: [
+          "Strong interpersonal and communication skills",
+          "Knowledge of social services and community resources",
+          "Empathy and problem-solving abilities"
+      ],
+      educationalRequirements: "Degree in Social Work or related field.",
+      careerPath: [
+          "Social Work Intern",
+          "Social Worker",
+          "Senior Social Worker",
+          "Social Work Manager"
+      ],
+      roadmap: [
+          "Complete social work education and obtain licensure.",
+          "Gain experience through internships and entry-level positions.",
+          "Pursue specialized certifications or advanced degrees for career advancement."
+      ]
+  },
+  "Financial Advisor": {
+      description: "Provides financial planning and investment advice to individuals and businesses.",
+      skillsRequired: [
+          "Strong knowledge of financial planning and investment strategies",
+          "Excellent communication and analytical skills",
+          "Ability to build client relationships"
+      ],
+      educationalRequirements: "Degree in Finance, Economics, or related field.",
+      careerPath: [
+          "Financial Planning Assistant",
+          "Financial Advisor",
+          "Senior Financial Advisor",
+          "Financial Advisory Manager"
+      ],
+      roadmap: [
+          "Study financial planning and gain relevant experience.",
+          "Build a client base and manage investment portfolios.",
+          "Pursue certifications such as CFP for career growth."
+      ]
+  },
+  "Sales Manager": {
+      description: "Leads and manages a sales team to achieve revenue targets and business growth.",
+      skillsRequired: [
+          "Strong leadership and team management skills",
+          "Excellent sales and negotiation abilities",
+          "Ability to analyze sales data and trends"
+      ],
+      educationalRequirements: "Degree in Business Administration, Marketing, or related field.",
+      careerPath: [
+          "Sales Representative",
+          "Sales Manager",
+          "Senior Sales Manager",
+          "Sales Director"
+      ],
+      roadmap: [
+          "Develop strong sales and leadership skills.",
+          "Gain experience in sales roles and manage teams.",
+          "Pursue advanced certifications or a master's degree for career advancement."
+      ]
+  },
+  "Public Policy Analyst": {
+      description: "Analyzes and develops policies to address public issues and improve government functions.",
+      skillsRequired: [
+          "Strong analytical and research skills",
+          "Understanding of public policy and government processes",
+          "Excellent communication and writing abilities"
+      ],
+      educationalRequirements: "Degree in Public Policy, Political Science, or related field.",
+      careerPath: [
+          "Policy Analyst",
+          "Public Policy Analyst",
+          "Senior Policy Analyst",
+          "Policy Advisor"
+      ],
+      roadmap: [
+          "Study public policy and gain research experience.",
+          "Work on policy development projects and build a portfolio.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue a master's degree or advanced certifications for career advancement."
+      ]
+  },
+  "Mechanical Technician": {
+      description: "Installs, maintains, and repairs mechanical systems and equipment.",
+      skillsRequired: [
+          "Strong mechanical and technical skills",
+          "Ability to read technical manuals and schematics",
+          "Attention to detail and problem-solving abilities"
+      ],
+      educationalRequirements: "Diploma or certification in Mechanical Technology or related field.",
+      careerPath: [
+          "Mechanical Technician",
+          "Senior Mechanical Technician",
+          "Mechanical Supervisor",
+          "Mechanical Engineering Manager"
+      ],
+      roadmap: [
+          "Complete technical training and gain hands-on experience.",
+          "Work on various mechanical systems and build a strong skill set.",
+          "Pursue additional certifications or specialized training for career advancement."
+      ]
+  },
+  "Architect": {
+      description: "Designs and plans buildings and structures, ensuring functionality and aesthetics.",
+      skillsRequired: [
+          "Strong creativity and architectural design skills",
+          "Proficiency in design software (e.g., CAD)",
+          "Knowledge of building codes and regulations"
+      ],
+      educationalRequirements: "Degree in Architecture or related field.",
+      careerPath: [
+          "Architectural Intern",
+          "Junior Architect",
+          "Architect",
+          "Senior Architect"
+      ],
+      roadmap: [
+          "Study architectural design and gain experience through internships.",
+          "Work on architectural projects and build a portfolio.",
+          "Obtain necessary licensure and certifications for career advancement."
+      ]
+  },
+  "UX/UI Designer": {
+      description: "Designs user interfaces and user experiences for digital products and applications.",
+      skillsRequired: [
+          "Strong understanding of UX/UI design principles",
+          "Proficiency in design tools (e.g., Sketch, Figma)",
+          "Excellent problem-solving and creativity"
+      ],
+      educationalRequirements: "Degree in Design, HCI, or related field.",
+      careerPath: [
+          "Junior UX/UI Designer",
+          "UX/UI Designer",
+          "Senior UX/UI Designer",
+          "UX/UI Design Lead"
+      ],
+      roadmap: [
+          "Learn UX/UI design principles and gain experience through projects.",
+          "Build a strong portfolio of design work.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue advanced certifications or leadership roles in UX/UI design."
+      ]
+  },
+  "Chef": {
+      description: "Plans and prepares meals in restaurants or other food establishments.",
+      skillsRequired: [
+          "Excellent culinary skills and creativity",
+          "Strong understanding of food safety and kitchen operations",
+          "Ability to manage and lead kitchen staff"
+      ],
+      educationalRequirements: "Degree or certification from a culinary school or related field.",
+      careerPath: [
+          "Line Cook",
+          "Sous Chef",
+          "Head Chef",
+          "Executive Chef"
+      ],
+      roadmap: [
+          "Attend culinary school or gain hands-on kitchen experience.",
+          "Work in various kitchen roles to build experience.",
+          "Pursue certifications or advanced culinary training for career advancement."
+      ]
+  },
+  "Healthcare Administrator": {
+      description: "Manages healthcare facilities and oversees medical and administrative operations.",
+      skillsRequired: [
+          "Strong understanding of healthcare systems and regulations",
+          "Excellent management and organizational skills",
+          "Ability to analyze and improve healthcare processes"
+      ],
+      educationalRequirements: "Degree in Healthcare Administration, Health Management, or related field.",
+      careerPath: [
+          "Healthcare Administrator Assistant",
+          "Healthcare Administrator",
+          "Senior Healthcare Administrator",
+          "Healthcare Director"
+      ],
+      roadmap: [
+          "Study healthcare administration and gain relevant experience.",
+          "Work in administrative roles within healthcare settings.",
+          "Pursue a master's degree or certifications for advanced roles."
+      ]
+  },
+  "Market Research Analyst": {
+      description: "Conducts research and analyzes market trends to help businesses make informed decisions.",
+      skillsRequired: [
+          "Strong analytical and research skills",
+          "Proficiency in market research tools",
+          "Excellent communication and reporting abilities"
+      ],
+      educationalRequirements: "Degree in Marketing, Statistics, or related field.",
+      careerPath: [
+          "Market Research Assistant",
+          "Market Research Analyst",
+          "Senior Market Research Analyst",
+          "Market Research Manager"
+      ],
+      roadmap: [
+          "Learn market research techniques and tools.",
+          "Gain experience through internships or entry-level roles.",
+          "Build a portfolio of research projects and reports.",
+          "Pursue advanced certifications or a master's degree for career advancement."
+      ]
+  },
+  "Database Administrator": {
+      description: "Manages and maintains database systems to ensure data security and efficiency.",
+      skillsRequired: [
+          "Proficiency in database management systems (e.g., SQL)",
+          "Strong problem-solving and analytical skills",
+          "Knowledge of data security practices"
+      ],
+      educationalRequirements: "Degree in Computer Science, Information Technology, or related field.",
+      careerPath: [
+          "Database Administrator Assistant",
+          "Database Administrator",
+          "Senior Database Administrator",
+          "Database Manager"
+      ],
+      roadmap: [
+          "Learn database management systems and data security practices.",
+          "Gain experience through internships or entry-level roles.",
+          "Build a strong portfolio of database management projects.",
+          "Pursue advanced certifications or a master's degree for career advancement."
+      ]
+  },
+  "Video Game Designer": {
+      description: "Designs and develops video games, including characters, gameplay, and storylines.",
+      skillsRequired: [
+          "Strong creativity and design skills",
+          "Proficiency in game development tools (e.g., Unity, Unreal Engine)",
+          "Understanding of game mechanics and storytelling"
+      ],
+      educationalRequirements: "Degree in Game Design, Computer Science, or related field.",
+      careerPath: [
+          "Junior Game Designer",
+          "Game Designer",
+          "Senior Game Designer",
+          "Lead Game Designer"
+      ],
+      roadmap: [
+          "Study game design principles and gain experience through projects.",
+          "Build a portfolio of game design work.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue advanced degrees or leadership roles in game design."
+      ]
+  },
+  "Social Media Manager": {
+      description: "Develops and manages social media strategies to increase brand presence and engagement.",
+      skillsRequired: [
+          "Strong understanding of social media platforms and strategies",
+          "Excellent communication and content creation skills",
+          "Ability to analyze social media metrics and trends"
+      ],
+      educationalRequirements: "Degree in Marketing, Communications, or related field.",
+      careerPath: [
+          "Social Media Coordinator",
+          "Social Media Manager",
+          "Senior Social Media Manager",
+          "Social Media Director"
+      ],
+      roadmap: [
+          "Learn social media management tools and strategies.",
+          "Create and manage social media campaigns.",
+          "Build a portfolio of successful social media campaigns.",
+          "Pursue advanced certifications or leadership roles in social media."
+      ]
+  },
+  "Fitness Trainer": {
+      description: "Provides fitness training and guidance to clients to help them achieve their health goals.",
+      skillsRequired: [
+          "Strong knowledge of fitness and exercise techniques",
+          "Excellent interpersonal and motivational skills",
+          "Ability to create personalized fitness plans"
+      ],
+      educationalRequirements: "Certification from a recognized fitness organization.",
+      careerPath: [
+          "Fitness Instructor",
+          "Personal Trainer",
+          "Senior Personal Trainer",
+          "Fitness Director"
+      ],
+      roadmap: [
+          "Obtain certification from a recognized fitness organization.",
+          "Gain experience through training clients and building a reputation.",
+          "Pursue advanced certifications or specializations in fitness training."
+      ]
+  },
+  "IT Support Specialist": {
+      description: "Provides technical support and troubleshooting for IT systems and software.",
+      skillsRequired: [
+          "Strong technical and problem-solving skills",
+          "Knowledge of IT systems and troubleshooting techniques",
+          "Excellent communication and customer service skills"
+      ],
+      educationalRequirements: "Degree or certification in Information Technology or related field.",
+      careerPath: [
+          "IT Support Technician",
+          "IT Support Specialist",
+          "Senior IT Support Specialist",
+          "IT Support Manager"
+      ],
+      roadmap: [
+          "Study IT systems and troubleshooting techniques.",
+          "Gain experience through internships or entry-level support roles.",
+          "Build a strong skill set and pursue advanced certifications for career growth."
+      ]
+  },
+  "Legal Assistant": {
+      description: "Supports lawyers by conducting research, preparing legal documents, and managing case files.",
+      skillsRequired: [
+          "Strong research and organizational skills",
+          "Knowledge of legal terminology and procedures",
+          "Excellent communication and writing abilities"
+      ],
+      educationalRequirements: "Degree or certification in Legal Studies or related field.",
+      careerPath: [
+          "Legal Assistant",
+          "Senior Legal Assistant",
+          "Legal Associate",
+          "Paralegal Manager"
+      ],
+      roadmap: [
+          "Study legal terminology and procedures.",
+          "Gain experience through internships or entry-level roles.",
+          "Pursue advanced certifications or further education for career advancement."
+      ]
+  },
+  "Real Estate Agent": {
+      description: "Helps clients buy, sell, and rent properties, providing advice and guidance throughout the process.",
+      skillsRequired: [
+          "Strong knowledge of real estate market trends",
+          "Excellent sales and negotiation skills",
+          "Ability to build and maintain client relationships"
+      ],
+      educationalRequirements: "Licensure from a recognized real estate authority.",
+      careerPath: [
+          "Real Estate Agent",
+          "Senior Real Estate Agent",
+          "Real Estate Broker",
+          "Real Estate Manager"
+      ],
+      roadmap: [
+          "Obtain necessary licensure and gain experience through real estate transactions.",
+          "Build a client base and manage property sales.",
+          "Pursue advanced certifications or broker licensure for career growth."
+      ]
+  },
+  "Research Scientist": {
+      description: "Conducts scientific research to advance knowledge in a specific field.",
+      skillsRequired: [
+          "Strong analytical and research skills",
+          "Proficiency in scientific methods and techniques",
+          "Ability to design and conduct experiments"
+      ],
+      educationalRequirements: "Degree in a scientific field (e.g., Biology, Chemistry).",
+      careerPath: [
+          "Research Scientist",
+          "Senior Research Scientist",
+          "Lead Research Scientist",
+          "Research Director"
+      ],
+      roadmap: [
+          "Pursue a degree in a relevant scientific field and gain research experience.",
+          "Conduct research projects and publish findings.",
+          "Pursue advanced degrees or specialized research roles for career advancement."
+      ]
+  },
+  "Data Analyst": {
+      description: "Analyzes and interprets data to help businesses make data-driven decisions.",
+      skillsRequired: [
+          "Strong analytical and statistical skills",
+          "Proficiency in data analysis tools (e.g., Excel, SQL)",
+          "Ability to communicate findings effectively"
+      ],
+      educationalRequirements: "Degree in Data Science, Statistics, or related field.",
+      careerPath: [
+          "Data Analyst",
+          "Senior Data Analyst",
+          "Data Scientist",
+          "Data Analytics Manager"
+      ],
+      roadmap: [
+          "Learn data analysis techniques and tools.",
+          "Gain experience through internships or entry-level roles.",
+          "Build a portfolio of data analysis projects.",
+          "Pursue advanced degrees or certifications for career growth."
+      ]
+  },
+  "SEO Specialist": {
+      description: "Optimizes website content to improve search engine rankings and drive organic traffic.",
+      skillsRequired: [
+          "Strong understanding of SEO principles and tools",
+          "Proficiency in keyword research and content optimization",
+          "Analytical skills to track and measure SEO performance"
+      ],
+      educationalRequirements: "Degree in Marketing, Communications, or related field.",
+      careerPath: [
+          "SEO Coordinator",
+          "SEO Specialist",
+          "Senior SEO Specialist",
+          "SEO Manager"
+      ],
+      roadmap: [
+          "Learn SEO techniques and tools.",
+          "Gain experience through internships or entry-level roles.",
+          "Build a portfolio of successful SEO projects.",
+          "Pursue advanced certifications or leadership roles in SEO."
+      ]
+  },
+  "Journalist": {
+      description: "Investigates and reports on news stories and current events for various media outlets.",
+      skillsRequired: [
+          "Strong writing and investigative skills",
+          "Ability to work under tight deadlines",
+          "Excellent communication and storytelling abilities"
+      ],
+      educationalRequirements: "Degree in Journalism, Communications, or related field.",
+      careerPath: [
+          "Junior Journalist",
+          "Journalist",
+          "Senior Journalist",
+          "Editor"
+      ],
+      roadmap: [
+          "Study journalism principles and gain experience through internships.",
+          "Build a portfolio of published work.",
+          "Gain experience in reporting and editing roles.",
+          "Pursue advanced roles or specialized journalism fields."
+      ]
+  }
+}
+// Function to get random top 3 jobs
+function getRandomJobs() {
+  const jobEntries = Object.entries(jobs);
+  const shuffled = jobEntries.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 3).map(([key, value]) => ({ title: key, ...value }));
+}
+
+// Function to create and display the job roadmap
+function displayJobRoadmap() {
+  const topJobs = getRandomJobs();
+  const container = document.getElementById('roadmap-container');
+  container.innerHTML = '';
+
+  topJobs.forEach((job, index) => {
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'roadmap-step';
+    jobDiv.innerHTML = `
+      <h3>${index + 1}. ${job.title}</h3>
+      <p>${job.description}</p>
+      <button onclick="togglePath('${job.title.replace(/ /g, '-').toLowerCase()}', this)">Learn More about ${job.title}</button>
+      <div id="${job.title.replace(/ /g, '-').toLowerCase()}" class="additional-content">
+        <h4>${job.title} Path</h4>
+        <p>${job.description}</p>
+        <ul>
+          <li><strong>Skills Required:</strong> ${job.skillsRequired.join(', ')}</li>
+          <li><strong>Educational Requirements:</strong> ${job.educationalRequirements}</li>
+          <li><strong>Career Path:</strong> ${job.careerPath.join(', ')}</li>
+        </ul>
+      </div>
+    `;
+    container.appendChild(jobDiv);
+  });
+}
+
+let currentlyVisibleContent = null;
+let currentlyVisibleButton = null;
+
+function togglePath(id, clickedButton) {
+  const content = document.getElementById(id);
+  const buttons = document.querySelectorAll('.roadmap-step button');
+
+  if (currentlyVisibleContent === id) {
+    content.style.display = 'none';
+    buttons.forEach(button => button.style.display = 'inline-block');
+    currentlyVisibleContent = null;
+    currentlyVisibleButton = null;
+  } else {
+    document.querySelectorAll('.additional-content').forEach(element => element.style.display = 'none');
+    buttons.forEach(button => button.style.display = 'inline-block');
+    content.style.display = 'block';
+    currentlyVisibleContent = id;
+    currentlyVisibleButton = clickedButton;
+    buttons.forEach(button => {
+      if (button !== clickedButton) {
+        button.style.display = 'none';
+      }
+    });
+  }
+}
+
+// Initialize the job roadmap on page load
+document.addEventListener('DOMContentLoaded', displayJobRoadmap);
+    </script>
+    <footer>
+        <p>NextStep by Tech-No-Logic-6</p>
+      </footer>
+    
+</body>
+</html>

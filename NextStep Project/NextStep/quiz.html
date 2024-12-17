@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz.css">
+    <title>Career Assessment Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Assessment Quiz</h1>
+        <form id="quizForm">
+            <div class="questionsContainer"></div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="results" style="display: none;">
+            <h2>Your Career Recommendations:</h2>
+            <canvas id="careerChart"></canvas>
+            <p id="careerOptions"></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <canvas id="careerChart" width="400" height="400"></canvas>
+    <div id="results" style="display:none;">
+        <h2>Your Career Recommendations</h2>
+        <div id="careerOptions"></div>
+        <canvas id="careerChart" width="400" height="400"></canvas>
+    </div>
+    
+    <script type="module" src="quizapp.js"></script>
+    <footer>
+        <p>NextStep by Tech-No-Logic-6</p>
+      </footer>
+    
+</body>
+</html>

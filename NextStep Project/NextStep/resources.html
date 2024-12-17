@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Counselling Platform - Career Resources</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #77bfa3;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            background-color: #4e9f75;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #3e8e61;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4e9f75;
+        }
+
+        .tab-container {
+            margin: 20px 0;
+        }
+
+        .tab {
+            background-color: #77bfa3;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            text-align: left;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #4e9f75;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .tab-content a {
+            color: #4e9f75;
+            text-decoration: none;
+        }
+
+        .tab-content a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #4e9f75;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            section {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NextStep</h1>
+        <p>Helping Students Make Informed Career Choices</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Career Assessment</a>
+        <a href="ai-guidance.html">AI Career Guidance</a>
+        <a href="Mentor.html">Mentorship Programs</a>
+        <a href="explore.html">Interactive Career Exploration</a>
+        <a href="resources.html">Career Resources</a>
+    </nav>
+
+    <section>
+        <h2>Comprehensive Career Resources</h2>
+        <p>Access extensive resources on different career options, required skills, educational pathways, and job market trends. Stay informed and make decisions with confidence.</p>
+
+        <div class="tab-container">
+            <button class="tab" onclick="toggleTab('softwareEngineer')">Software Engineer</button>
+            <div id="softwareEngineer" class="tab-content">
+                <p>Resources for Software Engineers:</p>
+                <ul>
+                    <li><a href="https://www.w3schools.com/java/">Java Programming Guide</a></li>
+                    <li><a href="https://www.javatpoint.com/java-coding-interview-questions">Coding Interview Preparation</a></li>
+                </ul>
+            </div>
+
+            <button class="tab" onclick="toggleTab('dataScientist')">Data Scientist</button>
+            <div id="dataScientist" class="tab-content">
+                <p>Resources for Data Scientists:</p>
+                <ul>
+                    <li><a href="https://github.com/jakevdp/PythonDataScienceHandbook">Data Science Handbook</a></li>
+                    <li><a href="https://www.udemy.com/course/machinelearning/?utm_source=adwords&utm_medium=udemyads&utm_campaign=Search_Keyword_Beta_Prof_la.EN_cc.India&campaigntype=Search&portfolio=India&language=EN&product=Course&test=&audience=Keyword&topic=Machine_Learning&priority=Beta&utm_content=deal4584&utm_term=_._ag_163779629231_._ad_696302076635_._kw_ml+course_._de_c_._dm__._pl__._ti_kwd-302623513369_._li_9061812_._pd__._&matchtype=b&gad_source=1&gclid=CjwKCAjwl6-3BhBWEiwApN6_kthKSrsYmUeGLVEiMHN4r0zd-ORME-ODVNiCmtyivmnXvQgQs5dqJRoCuLYQAvD_BwE&couponCode=IND21PM">Machine Learning Course</a></li>
+                </ul>
+            </div>
+
+            <button class="tab" onclick="toggleTab('uxDesigner')">UX Designer</button>
+            <div id="uxDesigner" class="tab-content">
+                <p>Resources for UX Designers:</p>
+                <ul>
+                    <li><a href="https://www.uxdesigninstitute.com/blog/ux-design-principles/">UX Design Principles</a></li>
+                    <li><a href="https://maze.co/guides/ux-research/ux-research-methods/">User Research Techniques</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>NextStep by Tech-No-Logic-6</p>
+    </footer>
+
+    <script>
+        function toggleTab(tabId) {
+            var tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(function(content) {
+                if (content.id === tabId) {
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.section-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2em;
+  color: #4e9f75; /* Blue color for section titles */
+}
+
+/* Slider Container */
+.course-slider, .internship-slider {
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #fff; /* White background for sliders */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px 0;
+}
+
+.course-container, .internship-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.course-slide, .internship-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #e9ecef; /* Light gray background for slides */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 10px;
+}
+
+.course-title, .internship-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #343a40; /* Dark gray color for titles */
+}
+
+.course-details, .internship-details {
+  font-size: 1em;
+  color: #495057; /* Medium gray color for details */
+}
+
+.course-price {
+  font-size: 1.1em;
+  color: #28a745; /* Green color for price */
+  margin-top: 10px;
+}
+
+.internship-info {
+  font-size: 1em;
+  color: #000; /* Blue color for additional info */
+  margin-top: 10px;
+}
+
+/* Navigation Buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #4e9f75; /* Blue background for buttons */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #3e8e71; /* Darker blue on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .course-slide, .internship-slide {
+    padding: 15px;
+  }
+
+  .course-title, .internship-title {
+    font-size: 1.2em;
+  }
+
+  .course-details, .internship-details, .course-price, .internship-info {
+    font-size: 0.9em;
+  }
+}

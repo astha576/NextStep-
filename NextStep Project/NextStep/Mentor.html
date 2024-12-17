@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentorship Platform</title>
+  <link rel="stylesheet" href="Mentor.css">
+</head>
+<body>
+  <header>
+    <h1>Mentorship Platform</h1>
+    <nav>
+      <ul>
+        <li><a href="#matching">Mentor Matching</a></li>
+        <li><a href="#mentors">Mentor Profiles</a></li>
+        <li><a href="#chat">Chat & Video</a></li>
+        <li><a href="#path">Career Path Mapping</a></li>
+        <li><a href="#feedback">Feedback & Goals</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Mentor Matching Section -->
+    <section id="matching" class="section">
+      <h2>Mentor Matching</h2>
+      <form id="match-form">
+        <label for="interests">Choose your career interest:</label>
+        <select id="interests">
+          <option value="tech">Technology</option>
+          <option value="business">Business</option>
+          <option value="health">Healthcare</option>
+          <option value="creative">Creative Industries</option>
+        </select>
+        <label for="personality">Your personality type:</label>
+        <select id="personality">
+          <option value="introvert">Introvert</option>
+          <option value="extrovert">Extrovert</option>
+        </select>
+        <button type="submit">Find Mentors</button>
+      </form>
+      <div id="mentor-results" class="grid">
+        <!-- Mentor results will be displayed here -->
+      </div>
+    </section>
+    
+    <!-- Mentor Profiles Section -->
+    <section id="mentors" class="section">
+      <h2>Featured Mentors</h2>
+      <div class="grid">
+        <div class="mentor-card">
+          
+          <h3>Jane Doe - Software Engineer</h3>
+          <p>Specializes in frontend development. Experienced mentor.</p>
+          <span class="rating">⭐️⭐️⭐️⭐️⭐️</span>
+          <button class="contact-btn">Contact Mentor</button>
+        </div>
+        <div class="mentor-card">
+          
+          <h3>John Smith - Business Analyst</h3>
+          <p>Helps students transition to corporate careers.</p>
+          <span class="rating">⭐️⭐️⭐️⭐️</span>
+          <button class="contact-btn">Contact Mentor</button>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Chat & Video Section -->
+    <section id="chat" class="section">
+      <h2>Chat & Video Sessions</h2>
+      <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <input type="text" id="message" placeholder="Type your message...">
+        <button id="send-msg">Send</button>
+      </div>
+    
+      <section id="video-session" class="section">
+        <h2>Schedule a Video Session</h2>
+        
+        <!-- Calendar and Time Picker -->
+        <form id="schedule-form">
+          <label for="session-date">Select Date:</label>
+          <input type="date" id="session-date" required>
+      
+          <label for="session-time">Select Time:</label>
+          <input type="time" id="session-time" required>
+      
+          <button type="submit">Schedule Video Session</button>
+        </form>
+        
+        <!-- Display Scheduled Sessions -->
+        <div id="scheduled-sessions">
+          <h3>Scheduled Video Sessions:</h3>
+          <ul id="session-list">
+            <!-- Dynamically generated scheduled sessions will be displayed here -->
+          </ul>
+        </div>
+      </section>
+      
+    </section>
+    
+
+    <!-- Career Path Mapping Section -->
+    <section id="path" class="section">
+        <h2>Career Path Mapping</h2>
+        <div class="career-container">
+          <div class="career-step completed" data-step="1">
+            
+            <span class="icon">🎓</span>
+            <p>Complete Bootcamp</p>
+          </div>
+          <div class="career-step" data-step="2">
+            <span class="icon">💼</span>
+            <p>Internship in Tech Company</p>
+          </div>
+          <div class="career-step" data-step="3">
+            <span class="icon">🖥️</span>
+            <p>Junior Developer Role</p>
+          </div>
+          <div class="career-step" data-step="4">
+            <span class="icon">📈</span>
+            <p>Mid-level Developer Role</p>
+          </div>
+        </div>
+        <button id="mark-complete">Mark Current Step as Complete</button>
+      </section>
+      
+
+    <!-- Feedback & Goals Section -->
+    <section id="feedback" class="section">
+      <h2>Feedback & Goal Tracking</h2>
+      <form id="feedback-form">
+        <label for="feedback">Give feedback to your mentor:</label>
+        <textarea id="feedback" rows="5" placeholder="Share your experience..."></textarea>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    
+      <div id="goals">
+        <h3>Set Your Career Goals:</h3>
+        <input type="text" id="goal-input" placeholder="Add a new goal...">
+        <button id="add-goal">Add Goal</button>
+        <ul id="goal-list"></ul>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>NextStep by Tech-No-Logic-6</p>
+  </footer>
+
+  <script src="Mentor.js"></script>
+</body>
+</html>

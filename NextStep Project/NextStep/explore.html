@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Development</title>
+  <link rel="stylesheet" href="explore.css">
+</head>
+<body>
+
+  <!-- Courses Section -->
+  <h1 class="section-title">Career Development Courses</h1>
+  
+  <div class="course-slider">
+    <button class="prev" onclick="prevCourse()">&#10094;</button>
+    
+    <div class="course-container" id="course-container">
+      <!-- New 10 courses -->
+      <div class="course-slide">
+        <h2 class="course-title">Course 1: Data Science Bootcamp</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Mathematics, Statistics, Programming</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Data Scientist, Data Analyst, Machine Learning Engineer.</p>
+        <p class="course-price"><strong>Price:</strong> $1,200</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 2: Web Development Essentials</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> HTML, CSS, JavaScript</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Frontend Developer, Web Designer.</p>
+        <p class="course-price"><strong>Price:</strong> $900</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 3: Business Management</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Economics, Business Studies</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Business Analyst, Operations Manager.</p>
+        <p class="course-price"><strong>Price:</strong> $430</p>
+
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 4: Law Basics</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Legal Studies, Ethics</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Lawyer, Legal Consultant.</p>
+        <p class="course-price"><strong>Price:</strong> $650</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 5: Engineering Fundamentals</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Physics, Mathematics</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Civil Engineer, Mechanical Engineer.</p>
+        <p class="course-price"><strong>Price:</strong> $560</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 6: Medicine and Healthcare</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Biology, Chemistry</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Doctor, Nurse, Medical Researcher.</p>
+        <p class="course-price"><strong>Price:</strong> $854</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 7: Graphic Design</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Art, Design Software</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Graphic Designer, UI/UX Designer.</p>
+        <p class="course-price"><strong>Price:</strong> $900</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 8: Software Engineering</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Programming, Algorithms</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Software Developer, System Architect.</p>
+        <p class="course-price"><strong>Price:</strong> $600</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 9: Marketing Strategy</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Business, Communications</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Marketing Manager, Sales Executive.</p>
+        <p class="course-price"><strong>Price:</strong> $500</p>
+      </div>
+      <div class="course-slide">
+        <h2 class="course-title">Course 10: Finance & Accounting</h2>
+        <p class="course-details"><strong>Required Subject History:</strong> Accounting, Economics</p>
+        <p class="course-details"><strong>Career Benefits:</strong> Financial Analyst, Accountant.</p>
+        <p class="course-price"><strong>Price:</strong> $800</p>
+      </div>
+      <!-- Additional course slides here... -->
+    </div>
+    
+    <button class="next" onclick="nextCourse()">&#10095;</button>
+  </div>
+
+  <!-- Internships Section -->
+  <h1 class="section-title">Internship Opportunities</h1>
+  
+  <div class="internship-slider">
+    <button class="prev" onclick="prevInternship()">&#10094;</button>
+    
+    <div class="internship-container" id="internship-container">
+      <!-- New 10 internships -->
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 1: Data Science Internship at XYZ Corp</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Python, Machine Learning</p>
+        <p class="internship-details"><strong>Benefits:</strong> Gain real-world experience in data analysis and predictive modeling.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,500 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 20 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> New York, NY</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 2: Frontend Web Development at ABC Tech</h2>
+        <p class="internship-details"><strong>Requirements:</strong> HTML, CSS, JavaScript, React</p>
+        <p class="internship-details"><strong>Benefits:</strong> Work on live projects and contribute to web app development.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,200 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 15 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> San Francisco, CA</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 3: Business Analyst Internship at DEF Solutions</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Business Studies, Communication</p>
+        <p class="internship-details"><strong>Benefits:</strong> Develop business analysis skills in live projects.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,500 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 17 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> San Diego, US</p>
+
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 4: Legal Internship at GHI Law Firm</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Legal Studies</p>
+        <p class="internship-details"><strong>Benefits:</strong> Work with a professional legal team on real cases.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,800 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 19 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> Los Angeles, CA</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 5: Engineering Internship at JKL Engineering</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Civil or Mechanical Engineering</p>
+        <p class="internship-details"><strong>Benefits:</strong> Gain hands-on experience in engineering projects.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,000 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 12 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> London, UK</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 6: Healthcare Internship at MNO Hospital</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Medical Studies</p>
+        <p class="internship-details"><strong>Benefits:</strong> Experience patient care and medical research.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,700 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 16 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> San Francisco, CA</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 7: Graphic Design Internship at PQR Studio</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Design Software, Art</p>
+        <p class="internship-details"><strong>Benefits:</strong> Work on real design projects for clients.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,300 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 10 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> Los Angeles, CA</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 8: Software Engineering Internship at STU Tech</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Java, C++, Algorithms</p>
+        <p class="internship-details"><strong>Benefits:</strong> Work on live software development projects.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,200 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 15 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> Delhi, IN</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 9: Marketing Internship at VWX Marketing</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Marketing, Communications</p>
+        <p class="internship-details"><strong>Benefits:</strong> Develop marketing strategies and conduct campaigns.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,400 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 21 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> Tokyo, JP</p>
+      </div>
+      <div class="internship-slide">
+        <h2 class="internship-title">Internship 10: Finance Internship at YZA Finance</h2>
+        <p class="internship-details"><strong>Requirements:</strong> Accounting, Economics</p>
+        <p class="internship-details"><strong>Benefits:</strong> Analyze financial data and assist in financial planning.</p>
+        <p class="internship-info"><strong>Stipend:</strong> $1,100 per month</p>
+        <p class="internship-info"><strong>Working Hours:</strong> 11 hours per week</p>
+        <p class="internship-info"><strong>Location:</strong> London, UK</p>
+      </div>
+    
+      
+      <!-- Additional internship slides here... -->
+    </div>
+    
+    <button class="next" onclick="nextInternship()">&#10095;</button>
+  </div>
+
+  <script src="explore.js"></script>
+</body>
+</html>
